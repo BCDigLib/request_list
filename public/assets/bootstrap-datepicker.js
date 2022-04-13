@@ -162,7 +162,6 @@
 		this.setDaysOfWeekDisabled(this.o.daysOfWeekDisabled);
 		this.setDaysOfWeekHighlighted(this.o.daysOfWeekHighlighted);
 		getClosedDates();
-		//this.setDatesDisabled(this.o.datesDisabled);
 
 		this.fillDow();
 		this.fillMonths();
