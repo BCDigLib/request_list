@@ -80,6 +80,29 @@
 		};
 	})();
 
+	function getClosedDates() {
+        var closedDates = [];
+        fetch("https://libcal.bc.edu/api/1.0/hours/507?key=d13aa063054b633afc465c1bc81cdb87&from=2022-04-01&to=2022-06-30", {
+            method: 'GET',
+            headers: {}
+        }).then(function(response) {
+            return response.json();
+        }).then(function(data) {
+            var dates = Object.entries(data[0].dates);
+
+            for(var i = 0; i < dates.length; i++){
+                if (dates[i][1].status === 'closed'){
+                    var currentDate = dates[i][0];
+                    var day = new Date(currentDate).getUTCDate();
+                    var month = new Date(currentDate).getUTCMonth();
+                    var year = new Date(currentDate).getUTCFullYear();
+                    var formattedDate = new Date(year, month, day).toLocaleDateString();
+                    closedDates.push(formattedDate);
+                }
+            }
+            $('.datepicker').datepicker('setDatesDisabled', closedDates);
+        }); 
+    };
 
 	// Picker object
 
@@ -138,7 +161,7 @@
 		this.setEndDate(this._o.endDate);
 		this.setDaysOfWeekDisabled(this.o.daysOfWeekDisabled);
 		this.setDaysOfWeekHighlighted(this.o.daysOfWeekHighlighted);
-		this.setDatesDisabled(this.o.datesDisabled);
+		getClosedDates();
 
 		this.fillDow();
 		this.fillMonths();

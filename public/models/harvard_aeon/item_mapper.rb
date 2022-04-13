@@ -21,6 +21,13 @@ module HarvardAeon
       mapped.extent.ext(:container_summary, mapped.extent.multi.map {|e| e.ext(:container_summary)}.compact.join('; '))
       mapped.extent.ext(:physical_details, mapped.extent.multi.map {|e| e.ext(:physical_details)}.compact.join('; '))
 
+      mapped.ext(:container_profile).name = top_container_name(item['json'])
+      #mapped.ext(:container_profile_name) = top_container_name(item['json'])
+      
+      mapped.collection.ext(:resource_title, resource_title(resource_json))
+
+      mapped.record.ext(:resource_title, resource_title(item['json']))
+
 
       containers_for(item).map do |c|
         mapped.container.multi.select {|m| m.uri == c['uri']}.map do |m|
@@ -29,12 +36,45 @@ module HarvardAeon
           m.ext(:location, (c['location_display_string_u_sstr'] || []).join('; '))
         end
       end
-
+   
       (@opts[:excluded_request_types] || []).map do |t|
         mapped.ext(:excluded_request_types).add.name = t
       end
 
       mapped.scrub! {|v| strip_mixed_content(v) }
+    end
+
+    def resource_title(item)
+
+      out = item["display_string"] 
+
+      if out.nil?
+        out = item["title"]
+      end
+
+      out
+    end
+
+    def top_container_name(resource)
+
+      out = resource['instances'].select {|i| i.has_key?('sub_container') && i['sub_container'].has_key?('top_container')}
+                              .map {|i| 
+                                instance = i['sub_container']['top_container']['_resolved']
+                                top_container_name = instance.dig('container_profile', '_resolved', 'name')
+
+                                next if top_container_name.nil?
+
+                                label_parts = []
+                                label_parts << top_container_name
+                                label_parts.compact.join("; ")
+                              }.compact
+
+
+      if out
+          out.join("; ")
+      else
+          ''
+      end
     end
 
 

@@ -16,7 +16,7 @@
 
         <%=
           [
-           {:val => title_attr.name, :class => 'rl-display-title', :uri => title_attr.uri},
+           {:val => title_attr.ext(:resource_title), :class => 'rl-display-title', :uri => title_attr.uri},
            {:val => item.date.name, :class => 'rl-display-date'},
            {:val => item.extent.name, :class => 'rl-display-extent'},
            {:val => item.extent.ext(:container_summary), :class => 'rl-display-container-summary'},
@@ -38,7 +38,7 @@
           <%= t('plugin.request_list.collection') %>:
         </span>
         <span class="rl-display rl-display-collection <%= is_record ? '' : 'rl-display-title'  %>">
-          <a href="<%= url_prefix + item.collection.uri %>"><%= item.collection.name %></a>
+          <a href="<%= url_prefix + item.collection.uri %>"><%= item.collection.ext(:resource_title) %></a>
 
           <% item.collection.multi.drop(1).map do |c| %>
             / <a href="<%= url_prefix + c.uri %>"><%= c.name %></a>

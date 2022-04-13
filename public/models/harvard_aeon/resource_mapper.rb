@@ -14,6 +14,7 @@ module HarvardAeon
         'Site'          => mapped.ext(:site).name,
         'ReferenceNumber' => mapped.ext(:hollis).id,
         'ItemTitle'     => mapped.collection.name,
+        #'ItemTitle'     => mapped.collection.ext(:resource_title),
         'ItemAuthor'    => mapped.creator.name,
         'Location'      => mapped.ext(:location).name,
         'CallNumber'    => mapped.collection.id,

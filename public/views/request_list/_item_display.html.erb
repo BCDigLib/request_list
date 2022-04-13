@@ -29,7 +29,7 @@
 
     <td class="rl-display rl-display-<%= title_label %>">
       <span class="rl-display-title">
-        <a href="<%= app_prefix(title_attr.uri) %>"><%= title_attr.name %></a>
+        <a href="<%= app_prefix(title_attr.uri) %>"><%= title_attr.ext(:resource_title) %></a>
       </span>
 
       <% unless title_attr.id.empty? %>
@@ -47,7 +47,7 @@
         <%= t('plugin.request_list.collection') %>:
       </td>
       <td class="rl-display rl-display-collection <%= is_record ? '' : 'rl-display-title'  %>">
-        <a href="<%= app_prefix(item.collection.uri) %>"><%= item.collection.name %></a>
+        <a href="<%= app_prefix(item.collection.uri) %>"><%= item.collection.ext(:resource_title) %></a>
 
         <% unless item.collection.id.empty? %>
           <span class="rl-display rl-display-id"><%= item.collection.id %></span>
