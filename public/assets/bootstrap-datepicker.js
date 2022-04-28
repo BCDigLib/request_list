@@ -82,7 +82,19 @@
 
 	function getClosedDates() {
         var closedDates = [];
-        fetch("https://libcal.bc.edu/api/1.0/hours/507?key=d13aa063054b633afc465c1bc81cdb87&from=2022-04-01&to=2022-06-30", {
+		var startDate = new Date();
+        var endDate = new Date();
+        endDate.setDate(endDate.getDate() + 100);
+
+        var urlStartDate = startDate.toISOString().split("T")[0];
+        var urlEndDate = endDate.toISOString().split("T")[0];
+
+        var urlStart = "https://libcal.bc.edu/api/1.0/hours/507?key=d13aa063054b633afc465c1bc81cdb87&from=";
+        var urlMid = "&to=";
+        var url = urlStart + urlStartDate + urlMid + urlEndDate;
+		console.log(url);
+
+        fetch(url, {
             method: 'GET',
             headers: {}
         }).then(function(response) {
@@ -100,7 +112,11 @@
                     closedDates.push(formattedDate);
                 }
             }
+			$('.datepicker').datepicker('setDaysOfWeekDisabled', '0,6');
             $('.datepicker').datepicker('setDatesDisabled', closedDates);
+            $('.datepicker').datepicker('setStartDate', startDate);
+			$('.datepicker').datepicker('setEndDate', endDate);
+
         }); 
     };
 
