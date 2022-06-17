@@ -14,7 +14,8 @@
 <table class="rl-item-table">
   <tr>
     <td class="rl-display" rowspan="<%= is_record ? 4 : 3 %>" width="30px">
-      <input type="checkbox" name="item-check-<%= @item_count %>" class="rl-item-check" checked/>
+      <label class="sr-only" for="item-check-<%= @item_count %>">Select item #<%= @item_count %></label>
+      <input type="checkbox" name="item-check-<%= @item_count %>" id="item-check-<%= @item_count %>" class="rl-item-check" checked/>
     </td>
     <td class="rl-display rl-display-left" rowspan="<%= is_record ? 4 : 3 %>" width="30px">
       <div class="rl-item-count-label"><%= @item_count %></div>
