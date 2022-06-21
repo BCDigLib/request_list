@@ -63,7 +63,7 @@
                title="<%= t('plugin.request_list.select_all_title') %>"
                data-title="<%= t('plugin.request_list.select_all_title') %>"
                onclick="request_list.selectAllButtonClick();"
-               href="javascript:void(0);">
+               href="#">
 
               <i class="fa fa-check rl-all-selected"></i>
               <%= t("plugin.request_list.select_all_button_label") %>
@@ -73,7 +73,7 @@
                title="<%= t('plugin.request_list.select_none_title') %>"
                data-title="<%= t('plugin.request_list.select_none_title') %>"
                onclick="request_list.selectNoneButtonClick();"
-               href="javascript:void(0);">
+               href="#">
 
               <i class="fa fa-minus rl-none-selected"></i>
               <%= t("plugin.request_list.select_none_button_label") %>
@@ -82,7 +82,7 @@
             <a class="btn btn-default rl-remove-all"
                title="<%= t('plugin.request_list.remove_all_button_label') %>"
                onclick="request_list.removeAllButtonClick('<%= t('plugin.request_list.remove_all_confirm_message') %>');"
-               href="javascript:void(0);">
+               href="#">
 
               <i class="fa fa-times"></i>
               <%= t("plugin.request_list.remove_all_button_label") %>
@@ -97,7 +97,7 @@
                data-key="<%= k %>"
                data-title="<%= t('plugin.request_list.sort_button_label') %> by <%= t("plugin.request_list.sort_#{k}") %>"
                onclick="request_list.sortButtonClick(this, '<%= k %>');"
-               href="javascript:void(0);">
+               href="#">
 
               <i class="fa fa-sort"></i>
               <%= t("plugin.request_list.sort_#{k}") %>

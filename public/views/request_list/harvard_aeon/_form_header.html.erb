@@ -35,7 +35,7 @@
 
   <div class="col-sm-3">
     <div class="form-group rl-ha-type-select">
-      <label class="control-label"><%= t('plugin.request_list.options.request_type') %></label>
+      <label for="request_type_select" class="control-label"><%= t('plugin.request_list.options.request_type') %></label>
       <div class="">
         <select name="request_type" id="request_type_select" class="form-control">
           <% handler.list_opts[:request_types].each do |type, values| %>
@@ -52,9 +52,10 @@
     <div class="rl-ha-options-form" id="rl-readingroom-options-form" data-request-type="readingroom">
 
       <div class="form-group col-sm-4">
-        <label class="control-label" title="Required"><%= t('plugin.request_list.options.date') %> *</label>
+        <label for="request_form_date_picker" class="control-label" title="Required"><%= t('plugin.request_list.options.date') %> *</label>
         <div class="input-group datepicker rl-datepicker">
           <input class="date-field form-control rl-ha-list-input required"
+                 id="request_form_date_picker"
                  title="<%= t('plugin.request_list.options.date_help') %>"
                  data-format="mm/dd/yyyy"
                  data-date="<%= Date.today.strftime('%m/%d/%Y') %>"
@@ -76,8 +77,8 @@
 
     <div class="rl-ha-options-form" id="rl-photoduplication-options-form" data-request-type="photoduplication">
       <div class="form-group col-sm-3">
-        <label class="control-label" title="Required"><%= t('plugin.request_list.options.format') %> *</label>
-        <select name="Format" class="form-control rl-ha-list-input required">
+        <label for="request_form_format" class="control-label" title="Required"><%= t('plugin.request_list.options.format') %> *</label>
+        <select name="Format" class="form-control rl-ha-list-input required" id="request_form_format">
           <option value="">...</option>
           <% handler.list_opts[:format_options].each do |option| %>
             <option value="<%= option %>"><%= option %></option>
@@ -95,12 +96,13 @@
 
   <div class="form-group rl-ha-notes-and-questions col-sm-5">
     <div class="form-group">
-      <label class="control-label rl-ha-questions-label"
+      <label for="request_form_special_request" class="control-label rl-ha-questions-label"
              data-photoduplication-label="<%= t('plugin.request_list.options.photoduplication_instructions') %>"
              data-other-label="<%= t('plugin.request_list.options.questions') %>">
         <%= t('plugin.request_list.options.questions') %>
       </label>
       <textarea name="SpecialRequest"
+                id="request_form_special_request"
                 rows="3"
                 class="form-control rl-ha-list-input rl-ha-questions-input"
                 title="<%= t('plugin.request_list.options.questions_help') %>"

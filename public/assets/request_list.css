@@ -39,13 +39,15 @@
 }
 
 .rl-remove-from-list-button {
-  width: 22px;
-  height: 24px;
+  /*width: 22px;
+  height: 24px;*/
   margin: 1px 1px 3px 1px;
   text-align: center;
-  color: #c2c2c2;
-  padding-left: 7px;
-  font-size: 12;
+  color: #757575;
+  /*padding-left: 7px;*/
+  line-height: 1;
+  font-size: 18px;
+  padding: 4px 8px;
 }
 
 .rl-edited-indicator {
