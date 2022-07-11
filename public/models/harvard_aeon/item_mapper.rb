@@ -57,6 +57,11 @@ module HarvardAeon
 
     def top_container_name(resource)
 
+      # catch edge-case where resource is incomplete or malformed
+      if resource.nil? || resource.key?('instances') == false
+        return ''
+      end
+
       out = resource['instances'].select {|i| i.has_key?('sub_container') && i['sub_container'].has_key?('top_container')}
                               .map {|i| 
                                 instance = i['sub_container']['top_container']['_resolved']
