@@ -396,9 +396,18 @@
     RequestList.prototype.showListCount = function(flash) {
 	var items = this.getList().length;
 	var a = $("a[href='/plugin/request_list/list']").first();
-	a.html(a.html().replace(/ \(\d+\)/, " (" + items + ")"));
+    var item_str = ""
+
+    // include string "(X of Y)" for items > 0
+    if (items <= 0) {
+        item_str = " (" + items + ")";
+    } else {
+        item_str = " (" + items + " of <strong>" +  this.item_limit + "</strong>)";
+    }
+
+	a.html(a.html().replace(/ \(.*\)/, item_str));
 	if (flash) {
-	    a.parent().fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+	    a.parent().fadeOut(250).fadeIn(250);
 	}
 	if (items >= this.item_limit) {
 	    a.parent().addClass('request-list-full');

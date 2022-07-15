@@ -1,4 +1,5 @@
 AppConfig[:request_list] = {
+  :item_limit => 20,
   :button_position => 0,
   :record_types => ['archival_object', 'resource', 'top_container'],
   :request_handlers => {

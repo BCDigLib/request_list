@@ -27,7 +27,7 @@
 }
 
 .request-list-full {
-  background-color: #fcc;
+  background-color: inherit;
 }
 
 #rl-photoduplication-options-form {
