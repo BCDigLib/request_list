@@ -9,18 +9,14 @@ module HarvardAeon
     end
 
     def request_permitted?(item)
-      Rails.logger.error(item['json']['jsonmodel_type'])
       if item['json']['jsonmodel_type'] == "archival_object" and item['json']['instances'] and item['json']['instances'].length >= 1
         item['json']['instances'].each do |my_instance|
           if my_instance['instance_type'] and my_instance['instance_type'] == "text" and my_instance['subcontainer'] and my_instance['subcontainer']['topcontainer'] and my_instance['subcontainter']['topcontainer']['ref']
-            true
-          else
-            false
+            return true
           end
         end
-      else
-        false
-      end  
+      end
+      return false;  
     end
 
     def form_fields(mapped)
