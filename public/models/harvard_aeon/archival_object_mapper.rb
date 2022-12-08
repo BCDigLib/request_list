@@ -16,7 +16,7 @@ module HarvardAeon
           end
         end
       end
-      return false;  
+      return false  
     end
 
     def form_fields(mapped)
