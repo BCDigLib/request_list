@@ -8,6 +8,16 @@ module HarvardAeon
       mapped.ext(:level).name = item['level'].capitalize
     end
 
+    def request_permitted?(item)
+      if item['json']['jsonmodel_type'] == "archival_object" and item['json']['instances'] and item['json']['instances'].length >= 1
+        item['json']['instances'].each do |my_instance|
+          if my_instance['instance_type'] and my_instance['instance_type'] == "text" and my_instance['sub_container'] and my_instance['sub_container']['top_container'] and my_instance['sub_container']['top_container']['ref']
+            return true
+          end
+        end
+      end
+      return false  
+    end
 
     def form_fields(mapped)
       shared_fields = {
