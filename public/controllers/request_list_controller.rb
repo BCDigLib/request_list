@@ -3,7 +3,11 @@ class RequestListController <  ApplicationController
   skip_before_action  :verify_authenticity_token
 
   def index
-    flash.now[:success] = I18n.t('plugin.request_list.sent_items_message', {:sent => params[:sent]}) if params[:sent]
+    if params[:sent]
+        flash.now[:success] = I18n.t('plugin.request_list.sent_items_message', {:count => params[:sent].to_i})
+
+        flash.now[:notice] = I18n.t('plugin.request_list.sent_items_warning_message')
+    end
 
     if uris.empty?
       return render 'request_list/empty_list'

@@ -12,7 +12,7 @@ en:
       unfilled_fields_error_message: "Please provide the following:"
       empty_list_error_message: Please check the items you would like to request.
       excluded_items_message: The %{repo} does not accept %{request_type} requests.  The following items from your list cannot be submitted. Please contact %{repo} directly.
-      submit_button_label: Submit Requests
+      submit_button_label: Start Submission process
       aeon_button_label: '>> View submitted requests'
       back_to_top_button_label: Back to top
       remove_all_button_label: Remove All
@@ -52,7 +52,10 @@ en:
           To see the requests that you have already submitted to Burns staff, log into your <a href="https://burnsaccount.bc.edu" target="_blank" rel="noopener noreferrer">Burns Library Account</a>.
       unhandled_items_title: Unhandled Items
       unhandled_items_message: The following items could not be requested. Please contact the Archives for assistance.
-      sent_items_message: You sent requests for %{sent} items.
+      sent_items_message: 
+        one: You submitted a request for 1 item.
+        other: You submitted a request for %{count} items.
+      sent_items_warning_message: <span class="h3">This request isn't finalized until you log into your <a href="https://burnsaccount.bc.edu" target="_blank" rel="noopener noreferrer" class="alert-link">Burns Library Account</a>.</span>
       email:
         list_button_label: Email List
         send_button_label: Send Email
@@ -82,5 +85,5 @@ en:
         photoduplication_instructions_help: This field is limited to 255 characters.
       expanded_help: |
         <p>
-          Fill out the request form, select the items you want to include in the request, and then click Submit Requests.
+          Fill out the request form, select the items you want to include in the request, and then click Start Submission process.
         </p>
