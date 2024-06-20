@@ -6,7 +6,8 @@ en:
       request_form_subtitle: 1) Choose request type
       title_message: |
           Review your requests below and either schedule a visit date to see them in the Burns Library Reading Room or submit a copy request for Burns staff to send you reference scans of selected materials.<br/><br/>
-          Requests that you've already submitted (either for a visit or to receive scans) can be viewed by logging into your <a href="https://burnsaccount.bc.edu" target="_blank" rel="noopener noreferrer">Burns Library Account</a>.
+          Requests that you've already submitted (either for a visit or to receive scans) can be viewed by logging into your <a href="https://burnsaccount.bc.edu" target="_blank" rel="noopener noreferrer">Burns Library Account</a>.<br/><br/>
+          <em>Requests are fulfilled at the box level. If you have requested any folders from a box, there is no need to request the same box again.</em>
       list_session_message: Items will remain in your list for this browser session.<br/>Your list will be cleared when you send requests.
       full_list_error_message: Your list is full. Please go to 'My Request List' and remove items or submit your requests to make room for more.
       unfilled_fields_error_message: "Please provide the following:"
