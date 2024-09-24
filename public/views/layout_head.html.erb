@@ -6,7 +6,7 @@
 
   $(function() {
 
-    var request_list = new RequestList(<%= AppConfig[:request_list][:item_limit] || 50 %>);
+    var request_list = new RequestList(<%= AppConfig[:request_list][:item_limit] %>);
     window.request_list = request_list;
 
     $('body').append('<%=j render partial: 'shared/modal', locals: {:modal_id => 'rl-alert-modal',
