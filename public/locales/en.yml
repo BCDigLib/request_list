@@ -43,7 +43,7 @@ en:
       extent: Extent
       alert_label: Error
       ok_button_label: Proceed
-      menu_label: My Request List
+      menu_label: My Request List (0)
       add_to_list_button_label: Add to My Request List
       add_to_list_button_icon: fa-plus
       remove_from_list_button_label: Remove from My Request List

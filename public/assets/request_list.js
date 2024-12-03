@@ -402,7 +402,7 @@
     if (items <= 0) {
         item_str = " (" + items + ")";
     } else {
-        item_str = " (" + items + " of <strong>" +  this.item_limit + "</strong>)";
+        item_str = " (" + items + ")";
     }
 
 	a.html(a.html().replace(/ \(.*\)/, item_str));
